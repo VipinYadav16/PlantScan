@@ -1,0 +1,169 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantScan</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/x-icon">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+            <span>PlantScan</span>
+        </div>
+        <div class="nav-links">
+            <a href="#index.html" class="active">Home</a>
+            <a href="#how-it-works">How it Works</a>
+            <a href="#detect-section">Detect Disease</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="animate-pop">Protect Your Plants with AI</h1>
+            <p class="animate-slide">Instantly detect and diagnose plant diseases using our advanced AI technology</p>
+            <a href="#detect-section" class="cta-button animate-slide">Get Started</a>
+        </div>
+        <div class="hero-image animate-float">
+            <img src="{{ url_for('static', filename='images/img2.png') }}" alt="Plant Analysis">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Why Choose Plant Disease Detection?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Instant Detection</h3>
+                <p>Get results in seconds with our AI algorithm</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-leaf"></i>
+                <h3>Wide Plant Database</h3>
+                <p>Support 38+ plant species and diseases</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-pills"></i>
+                <h3>Accurate Results</h3>
+                <p>Receive precise information</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Preview -->
+    <div class="content-wrapper">
+        <section class="how-it-works-preview" id="how-it-works">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Upload Photo</h3>
+                    <p>Take a clear photo of the affected plant leaf</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>AI Analysis</h3>
+                    <p>Our AI processes and analyzes the image</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Results</h3>
+                    <p>Receive details of the disease</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detection Section -->
+        <section id="detect-section">
+            <div class="upload-container">
+                <div class="upload-box" id="uploadBox">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Drag & Drop or Click to Upload</h3>
+                    <p>Supported formats: JPG, PNG (Max size: 5MB)</p>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                </div>
+            </div>
+            <div class="preview-container" id="previewContainer" style="display: none;">
+                <img id="imagePreview" src="" alt="Preview">
+                <div>
+                    <button id="analyzeBtn" class="button">Analyze Image</button>
+                    <button id="resetBtn" class="secondary-button">Upload New Image</button>
+                </div>
+            </div>
+
+            <div class="results-container" id="resultsContainer" style="display: none;">
+                <div class="results-header">
+                    <h2>Analysis Results</h2>
+                    <span class="confidence">Confidence: <span id="confidenceScore">0</span>%</span>
+                </div>
+                <div class="results-content">
+                    <div class="plant-info">
+                        <h3>Plant Identification</h3>
+                        <p id="plantName">Loading...</p>
+                    </div>
+                    <div class="disease-info">
+                        <h3>Disease Detection</h3>
+                        <p id="diseaseName">Loading...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-section">
+            <div class="about-content">
+                <h2>About the Project</h2>
+                <p>
+                    This project leverages deep learning to detect plant diseases from leaf images, addressing
+                    significant agricultural challenges. Using the PlantVillage dataset, it implements two models: a
+                    custom lightweight CNN for efficient processing and MobileNet, a pre-trained model for higher
+                    accuracy. The solution is deployed through an interactive Flask-based web application, where users
+                    can upload leaf images to receive disease classifications along with confidence scores. This project
+                    demonstrates the potential of machine learning to enhance agricultural productivity and mitigate
+                    crop losses through accessible, real-time technology-driven solutions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="foot-content">
+            <div class="image"><img src="{{ url_for('static', filename='images/logo.png') }}"></div>
+            <div class="footbox">
+                <p>Designed & Developed by Vipin Yadav</p>
+                <div class="plink">
+                    <a href="https://www.linkedin.com/in/vipin-yadav-261943281/"><img
+                            src="{{ url_for('static', filename='images/iconlinkedin.png') }}"></a>
+                    <a href="https://twitter.com/vipin_yadav__"><img
+                            src="{{ url_for('static', filename='images/iconx.png') }}"></a>
+                    <a href="https://github.com/VipinYadav16"><img
+                            src="{{ url_for('static', filename='images/icongithub.png') }}"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
