@@ -87,6 +87,22 @@ import numpy as np
 # Initialize Flask app
 app = Flask(__name__)
 
+import os
+
+# ✅ Disable GPU usage
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+
+# ✅ Suppress TensorFlow warnings
+import tensorflow as tf
+import logging
+tf.get_logger().setLevel('ERROR')
+logging.getLogger('tensorflow').setLevel(logging.ERROR)
+
+# ✅ Disable oneDNN optimizations (optional)
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+
+
+
 # Configure upload folder and allowed extensions
 UPLOAD_FOLDER = 'static/uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
