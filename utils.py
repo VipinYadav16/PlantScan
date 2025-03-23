@@ -3,6 +3,8 @@ import numpy as np
 from tensorflow.keras.preprocessing import image
 from werkzeug.utils import secure_filename
 
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+
 # Allowed file extensions
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
