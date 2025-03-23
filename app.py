@@ -17,9 +17,9 @@ MODEL_PATH = 'model.h5'
 
 try:
     model = load_model(MODEL_PATH)
-    print("✅ Model loaded successfully.")
+    print("Model loaded successfully.")
 except Exception as e:
-    print(f"❌ Error loading model: {e}")
+    print(f"Error loading model: {e}")
     model = None
 
 # Ensure the upload folder exists
